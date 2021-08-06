@@ -1,0 +1,14 @@
+{
+  "name": "appointments",
+  "version": "1.0.0",
+  "description": "Appointments System",
+  "private": true,
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
