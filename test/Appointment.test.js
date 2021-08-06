@@ -56,4 +56,17 @@ describe('AppointmentsDayView', () => {
       appointments.length
     );
   });
+
+  it('renders each component in an li', () => {
+    const today = new Date();
+    const appointments = [
+      { startsAt: today.setHours(12, 0) },
+      { startsAt: today.setHours(13, 0) },
+    ];
+
+    render(<AppointmentsDayView appointments={appointments} />, container);
+
+    expect(container.querySelectorAll('li')).toHaveLength(2);
+    expect(container.querySelectorAll('li')[1].textContent).toEqual('13:00');
+  });
 });
