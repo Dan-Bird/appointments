@@ -42,13 +42,13 @@ describe('AppointmentsDayView', () => {
   });
 
   it('renders a div with the right id', () => {
-    render(<AppointmentsDayView appointments={[]} />, container);
+    render(<AppointmentsDayView appointments={[]} />);
 
     expect(container.querySelector('div#appointmentsDayView')).not.toBeNull();
   });
 
   it('renders multiple appointments in an ol element', () => {
-    render(<AppointmentsDayView appointments={appointments} />, container);
+    render(<AppointmentsDayView appointments={appointments} />);
 
     expect(container.querySelector('ol')).not.toBeNull();
     expect(container.querySelector('ol').children).toHaveLength(
@@ -57,9 +57,16 @@ describe('AppointmentsDayView', () => {
   });
 
   it('renders each component in an li', () => {
-    render(<AppointmentsDayView appointments={appointments} />, container);
+    render(<AppointmentsDayView appointments={appointments} />);
 
     expect(container.querySelectorAll('li')).toHaveLength(2);
     expect(container.querySelectorAll('li')[1].textContent).toEqual('13:00');
+  });
+
+  it('intitially shows a message saying there are no appointments today', () => {
+    render(<AppointmentsDayView appointments={[]} />);
+    expect(container.textContent).toMatch(
+      'There are no appointments scheduled for today.'
+    );
   });
 });
