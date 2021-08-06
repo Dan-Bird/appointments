@@ -96,7 +96,7 @@ describe('AppointmentsDayView', () => {
     expect(container.querySelectorAll('li > button')[0].type).toEqual('button');
   });
 
-  xit('renders another appointment when selected', () => {
+  it('renders another appointment when selected', () => {
     render(<AppointmentsDayView appointments={appointments} />);
 
     const button = container.querySelectorAll('button')[1];
