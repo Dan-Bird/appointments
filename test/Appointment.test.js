@@ -5,12 +5,22 @@ import { Appointment } from '../src/Appointment';
 describe('Appointment', () => {
   it('renders the customer first name', () => {
     const customer = { firstname: 'Ashley' };
+    const container = document.createElement('div');
+    document.body.appendChild(container);
+
+    ReactDOM.render(<Appointment customer={customer} />, container);
+
+    expect(container.textContent).toMatch('Ashley');
+  });
+
+  xit('renders another customer first name', () => {
+    const customer = { firstname: 'Jordan' };
     const component = <Appointment customer={customer} />;
     const container = document.createElement('div');
     document.body.appendChild(container);
 
     ReactDOM.render(component, container);
 
-    expect(document.body.textContent).toMatch('Ashley');
+    expect(document.body.textContent).toMatch('Jordan');
   });
 });
